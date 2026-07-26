@@ -20,3 +20,6 @@ def pregunta_07():
     E    67
     Name: c2, dtype: int64
     """
+    from homework._data import read_table
+
+    return read_table("tbl0.tsv").groupby("c1")["c2"].sum()

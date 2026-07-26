@@ -20,3 +20,8 @@ def pregunta_13():
     E    275
     Name: c5b, dtype: int64
     """
+    from homework._data import read_table
+
+    tbl0 = read_table("tbl0.tsv")
+    tbl2 = read_table("tbl2.tsv")
+    return tbl0.merge(tbl2, on="c0").groupby("c1")["c5b"].sum()

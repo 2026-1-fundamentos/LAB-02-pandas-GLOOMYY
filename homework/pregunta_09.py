@@ -23,3 +23,7 @@ def pregunta_09():
     39  39  E   5  1998-01-26  1998
 
     """
+    from homework._data import read_table
+
+    table = read_table("tbl0.tsv")
+    return table.assign(year=table["c3"].str[:4])

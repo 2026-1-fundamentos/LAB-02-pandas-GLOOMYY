@@ -20,3 +20,15 @@ def pregunta_10():
     D                   1:2:3:5:5:7
     E   1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
+    from homework._data import read_table
+
+    table = read_table("tbl0.tsv")
+    result = (
+        table.sort_values(["c1", "c2"])
+        .assign(c2=lambda frame: frame["c2"].astype(str))
+        .groupby("c1")["c2"]
+        .agg(":".join)
+        .to_frame()
+    )
+    result.index.name = "_c1"
+    return result

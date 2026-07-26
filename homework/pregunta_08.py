@@ -22,3 +22,7 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
+    from homework._data import read_table
+
+    table = read_table("tbl0.tsv")
+    return table.assign(suma=table["c0"] + table["c2"])

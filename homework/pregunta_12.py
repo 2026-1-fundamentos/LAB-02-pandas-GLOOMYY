@@ -22,3 +22,8 @@ def pregunta_12():
     38   38                    eee:0,fff:9,iii:2
     39   39                    ggg:3,hhh:8,jjj:5
     """
+    from homework._data import read_table
+
+    table = read_table("tbl2.tsv").sort_values(["c0", "c5a"])
+    table["c5"] = table["c5a"] + ":" + table["c5b"].astype(str)
+    return table.groupby("c0", as_index=False)["c5"].agg(",".join)

@@ -15,3 +15,7 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
+    from homework._data import read_table
+
+    table = read_table("tbl1.tsv")
+    return sorted(table["c4"].str.upper().unique().tolist())

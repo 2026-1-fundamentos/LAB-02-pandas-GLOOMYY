@@ -22,3 +22,11 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
+    from homework._data import read_table
+
+    return (
+        read_table("tbl1.tsv")
+        .sort_values(["c0", "c4"])
+        .groupby("c0", as_index=False)["c4"]
+        .agg(",".join)
+    )

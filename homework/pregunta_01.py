@@ -14,3 +14,6 @@ def pregunta_01():
     40
 
     """
+    from homework._data import read_table
+
+    return read_table("tbl0.tsv").shape[0]
